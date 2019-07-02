@@ -4,29 +4,29 @@ module.exports = class Calculator {
   }
   //function that returns the sum of added numbers
   add() {
-    let sum = 0;
+    let result = 0;
 
     for (let i = 0; i < arguments.length; i++) {
-      sum += arguments[i];
+      result += arguments[i];
     }
-    this.total = sum;
+    this.totalEquals = result;
 
-    return sum;
+    return result;
   }
   //function that returns the sum of multiples
   multiply() {
-    let sum = arguments[0];
+    let result = arguments[0];
 
     for (let i = 0; i < arguments.length; i++) {
-      sum *= arguments[i];
+      result *= arguments[i];
     }
-    this.total = sum;
+    this.totalEquals = result;
 
-    return sum;
+    return result;
   }
   //returns the last result
   last() {
-    return this.total;
+    return this.totalEquals;
   }
   //sets a slot number
   set_slot(slotNumber) {
@@ -39,6 +39,3 @@ module.exports = class Calculator {
     return this.memory[slotNumber - 1];
   }
 };
-
-// let calculator = new Calculator();
-// calculator.add(1,2,3,4,5)

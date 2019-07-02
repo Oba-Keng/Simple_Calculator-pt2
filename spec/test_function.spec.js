@@ -1,4 +1,4 @@
-const Calculator = require("./calc.js");
+const Calculator = require("../calc.js");
 
 describe("simple calculator that", function() {
   it("should return zero", function() {
@@ -39,8 +39,9 @@ describe("simple calculator that", function() {
   it("it returns the last result", function() {
     var calculator = new Calculator();
     calculator.add(2, 4);
-    calculator.multiply(2, 3, 4, 5);
+    expect(calculator.last()).toBe(6);
 
+    calculator.multiply(2, 3, 4, 5);
     expect(calculator.last()).toBe(240);
   });
   it("sets a slot number", function() {
