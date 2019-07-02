@@ -22,7 +22,7 @@ module.exports = class Calculator {
     }
     this.totalEquals = result;
 
-    return result;
+    return this.totalEquals;
   }
   //returns the last result
   last() {

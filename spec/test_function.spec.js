@@ -37,15 +37,23 @@ describe("simple calculator that", function() {
     expect(calculator.multiply(1, 2, 3, 4)).toBe(24);
   });
   it("it returns the last result", function() {
-    var calculator = new Calculator();
+    const calculator = new Calculator();
     calculator.add(2, 4);
     expect(calculator.last()).toBe(6);
 
     calculator.multiply(2, 3, 4, 5);
     expect(calculator.last()).toBe(240);
   });
+  it("uses the last result", function() {
+    const calculator = new Calculator();
+    calculator.add(23, 55);
+    let last = calculator.last();
+    expect(calculator.add(last, 60)).toBe(138);
+
+    expect(calculator.multiply(last, 2)).toBe(12168);
+  });
   it("sets a slot number", function() {
-    var calculator = new Calculator();
+    const calculator = new Calculator();
 
     calculator.add(10, 25);
 
@@ -53,11 +61,11 @@ describe("simple calculator that", function() {
     expect(calculator.get_slot(1)).toBe(35);
   });
   it("gets a slot number", function() {
-    var calculator = new Calculator();
+    const calculator = new Calculator();
 
     calculator.multiply(5, 25);
 
-    var SLOT_1 = calculator.set_slot(1);
+    let SLOT_1 = calculator.set_slot(1);
 
     expect(calculator.get_slot(1)).toBe(625);
     expect(calculator.add(SLOT_1, 5)).toBe(630);
