@@ -31,10 +31,10 @@ describe("simple calculator that", function() {
     expect(calculator.multiply(1, 2)).toBe(2);
   });
 
-  it("should return sum of four multiples", function() {
+  it("returns sum of any amount of multiples", function() {
     let calculator = new Calculator();
 
-    expect(calculator.multiply(1, 2, 3, 4)).toBe(24);
+    expect(calculator.multiply(1, 2, 3, 4, 5)).toBe(120);
   });
   it("it returns the last result", function() {
     const calculator = new Calculator();
