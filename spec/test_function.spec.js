@@ -2,37 +2,37 @@ const Calculator = require("../calc.js");
 
 describe("simple calculator that", function() {
   it("should return zero", function() {
-    var calculator = new Calculator();
+    let calculator = new Calculator();
 
     expect(calculator.add(0, 0)).toBe(0);
   });
 
   it("should return negative number", function() {
-    var calculator = new Calculator();
+    let calculator = new Calculator();
 
     expect(calculator.add(-1, -1)).toBe(-2);
   });
 
   it("should return sum of two numbers", function() {
-    var calculator = new Calculator();
+    let calculator = new Calculator();
 
     expect(calculator.add(4, 5)).toBe(9);
   });
 
   it("can add multiple numbers", function() {
-    var calculator = new Calculator();
+    let calculator = new Calculator();
 
     expect(calculator.add(1, 2, 3, 4)).toBe(10);
   });
 
   it("should return sum of two multiples", function() {
-    var calculator = new Calculator();
+    let calculator = new Calculator();
 
     expect(calculator.multiply(1, 2)).toBe(2);
   });
 
   it("should return sum of four multiples", function() {
-    var calculator = new Calculator();
+    let calculator = new Calculator();
 
     expect(calculator.multiply(1, 2, 3, 4)).toBe(24);
   });
@@ -65,9 +65,9 @@ describe("simple calculator that", function() {
 
     calculator.multiply(5, 25);
 
-    let SLOT_1 = calculator.set_slot(1);
+    let slot_1 = calculator.set_slot(1);
 
     expect(calculator.get_slot(1)).toBe(625);
-    expect(calculator.add(SLOT_1, 5)).toBe(630);
+    expect(calculator.add(slot_1, 5)).toBe(630);
   });
 });
