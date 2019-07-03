@@ -11,7 +11,7 @@ module.exports = class Calculator {
     }
     this.totalEquals = result;
 
-    return result;
+    return this.totalEquals;
   }
   //function that returns the sum of multiples
   multiply() {
