@@ -7,6 +7,6 @@
 - multiplying numbers
 - memory slots
 
--npm install jasmine
+* npm install jasmine
 - run jasmine to test functions
 
