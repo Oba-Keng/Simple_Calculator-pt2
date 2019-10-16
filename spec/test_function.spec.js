@@ -42,23 +42,22 @@ describe("simple calculator that", function() {
     expect(calculator.last()).toBe(6);
 
     calculator.multiply(2, 3, 4, 5);
-    expect(calculator.last()).toBe(240);
+    expect(calculator.last()).toBe(120);
   });
   it("uses the last result", function() {
     const calculator = new Calculator();
     calculator.add(23, 55);
     let last = calculator.last();
-    expect(calculator.add(last, 60)).toBe(138);
+    
 
-    expect(calculator.multiply(last, 2)).toBe(12168);
+    expect(calculator.multiply(last, 2)).toBe(156);
   });
   it("sets a slot number", function() {
     const calculator = new Calculator();
 
     calculator.add(10, 25);
-
-    expect(calculator.set_slot(1)).toBe(35);
-    expect(calculator.get_slot(1)).toBe(35);
+    calculator.set_slot(1)
+   expect(calculator.get_slot(1)).toBe(35);
   });
   it("gets a slot number", function() {
     const calculator = new Calculator();
@@ -66,8 +65,21 @@ describe("simple calculator that", function() {
     calculator.multiply(5, 25);
 
     let slot_1 = calculator.set_slot(1);
+    calculator.get_slot(1)
+    
+    expect(calculator.add(slot_1, 5)).toBe(130);
+  });
+  it("uses memory slot to return a sum of a string and number", function() {
+    const calculator = new Calculator();
 
-    expect(calculator.get_slot(1)).toBe(625);
-    expect(calculator.add(slot_1, 5)).toBe(630);
+    calculator.add(70, 25);
+
+    expect(calculator.add("LAST", 5)).toBe(100);
+  });
+  it("uses memory slot to return a sum of a string and number", function() {
+    const calculator = new Calculator();
+    calculator.multiply(5, 5)
+  
+    expect(calculator.multiply("LAST", 5)).toBe(125);
   });
 });
