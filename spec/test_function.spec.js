@@ -80,6 +80,6 @@ describe("simple calculator that", function() {
     const calculator = new Calculator();
     calculator.multiply(5, 5)
   
-    expect(calculator.multiply("LAST", 5)).toBe(125);
+    expect(calculator.multiply("LAST", 10)).toBe(250);
   });
 });

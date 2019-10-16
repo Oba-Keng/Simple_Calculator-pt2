@@ -48,7 +48,7 @@ class Calculator {
           result *= parseInt(this.last());
       }
       else 
-       if(arguments[i]!=="addLAST"&&arguments[i]==typeof('string')){
+       if(arguments[i]!=="LAST"&&arguments[i]==typeof('string')){
          
            this.digit = this.regex.test(arguments[i])
           result *= this.memory[parseInt(this.digit) - 1]
