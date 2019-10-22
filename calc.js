@@ -3,15 +3,16 @@ class Calculator {
   constructor() {
     this.memory = [];
     this.regex = /\d{1,5}/gm;
-    this.digit;
+    
     this.total=0;
+    // this.slot = "SlOT_1";
     
   }
   
   //function that returns the sum of added numbers
   add() {
     let result = 0;
-    
+    let digit;
 
     for (let i = 0; i < arguments.length; i++) 
     
@@ -21,10 +22,10 @@ class Calculator {
      
       
       }else 
-      if(arguments[i]!=="LAST"&&arguments[i]==typeof('string')){
+      if(arguments[i]!=="LAST" && arguments[i]==typeof('string')){
        if(arguments[i].match(this.regex)) {
-        this.digit = this.regex.test(arguments[i])
-        result += this.memory[arguments[this.digit-1]]
+        digit = this.arguments[i].match(regex)
+        result += this.memory[arguments[digit[i]-1]]
 
        }
       }else{
@@ -41,6 +42,7 @@ class Calculator {
   multiply() {
 
     let result=1;
+  
    
     for (let i = 0; i < arguments.length; i++) 
     
@@ -50,8 +52,9 @@ class Calculator {
       else 
        if(arguments[i]!=="LAST"&&arguments[i]==typeof('string')){
          
-           this.digit = this.regex.test(arguments[i])
-          result *= this.memory[parseInt(this.digit) - 1]
+           let digit = this.regex.test(arguments[i])
+          result *= parseInt(this.memory[parseInt(digit) - 1])
+          console.log(result);
         
         
       }else{
@@ -73,11 +76,11 @@ class Calculator {
   set_slot(slotNumber) {
     this.memory.push(this.last());
 
-    return this.memory[slotNumber - 1];
+    return parseInt(this.memory[slotNumber - 1]);
   }
   //gets a slot number
   get_slot(slotNumber) {
-    return this.memory[slotNumber - 1];
+    return parseInt(this.memory[slotNumber - 1]);
   }
 
   

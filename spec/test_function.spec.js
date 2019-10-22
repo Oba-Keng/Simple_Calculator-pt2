@@ -78,8 +78,10 @@ describe("simple calculator that", function() {
   });
   it("uses memory slot to return a sum of a string and number", function() {
     const calculator = new Calculator();
-    calculator.multiply(5, 5)
-  
-    expect(calculator.multiply("LAST", 10)).toBe(250);
+    calculator.add(10,5);
+    calculator.set_slot(1)
+    expect(calculator.multiply("LAST", 5)).toBe(100);
+
+    expect(calculator.multiply("SLOT_1", 10)).toBe(105);
   });
 });
