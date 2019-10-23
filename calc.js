@@ -3,10 +3,7 @@ class Calculator {
   constructor() {
     this.memory = [];
     this.regex = /\d+/g;
-    
     this.total=0;
-    // this.slot = "SlOT_1";
-    
   }
   
   //function that returns the sum of added numbers
@@ -57,7 +54,7 @@ class Calculator {
      this.total = result;
     return parseInt(this.total);
   }
-  
+
   //returns the last result
   last() {
     return parseInt(this.total);
