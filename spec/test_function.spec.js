@@ -1,6 +1,7 @@
 const Calculator = require("../calc.js");
 
 describe("simple calculator that", function() {
+
   it("should return zero", function() {
     let calculator = new Calculator();
 
@@ -25,7 +26,7 @@ describe("simple calculator that", function() {
     expect(calculator.add(1, 2, 3, 4)).toBe(10);
   });
 
-  it("should return sum of two multiples", function() {
+  it("should return sum of multiples", function() {
     let calculator = new Calculator();
 
     expect(calculator.multiply(1, 2)).toBe(2);
@@ -36,6 +37,7 @@ describe("simple calculator that", function() {
 
     expect(calculator.multiply(1, 2, 3, 4, 5)).toBe(120);
   });
+
   it("it returns the last result", function() {
     const calculator = new Calculator();
     calculator.add(2, 4);
@@ -44,14 +46,21 @@ describe("simple calculator that", function() {
     calculator.multiply(2, 3, 4, 5);
     expect(calculator.last()).toBe(120);
   });
-  it("uses the last result", function() {
-    const calculator = new Calculator();
-    calculator.add(23, 55);
-    let last = calculator.last();
-    
 
-    expect(calculator.multiply(last, 2)).toBe(156);
+  it("uses LAST result to return a sum", function() {
+    const calculator = new Calculator();
+
+    calculator.add(70, 25);
+    expect(calculator.add("LAST", 5)).toBe(100);
+
+    calculator.add(10, 25);
+    expect(calculator.multiply("LAST", 5)).toBe(175);
+
+    calculator.multiply(5,2);
+    expect(calculator.add("LAST", 5)).toBe(15);
   });
+
+
   it("sets a slot number", function() {
     const calculator = new Calculator();
 
@@ -59,29 +68,25 @@ describe("simple calculator that", function() {
     calculator.set_slot(1)
    expect(calculator.get_slot(1)).toBe(35);
   });
-  it("gets a slot number", function() {
+
+  it("uses memory slots to return a sum", function() {
     const calculator = new Calculator();
 
-    calculator.multiply(5, 25);
-
-    let slot_1 = calculator.set_slot(1);
-    calculator.get_slot(1)
-    
-    expect(calculator.add(slot_1, 5)).toBe(130);
-  });
-  it("uses memory slot to return a sum of a string and number", function() {
-    const calculator = new Calculator();
-
-    calculator.add(70, 25);
-
-    expect(calculator.add("LAST", 5)).toBe(100);
-  });
-  it("uses memory slot to return a sum of a string and number", function() {
-    const calculator = new Calculator();
-    calculator.add(10,5);
+    calculator.add(15,9);
     calculator.set_slot(1)
-    expect(calculator.multiply("LAST", 5)).toBe(100);
+    expect(calculator.add("SLOT_1",5)).toBe(29);
 
-    expect(calculator.multiply("SLOT_1", 10)).toBe(105);
+    calculator.add(10,9);
+    calculator.set_slot(2)
+    expect(calculator.multiply("SLOT_2",24)).toBe(456);
+
+    calculator.multiply(10,5);
+    calculator.set_slot(3)
+    expect(calculator.multiply("SLOT_3",24)).toBe(1200);
+
+    calculator.multiply(100,5);
+    calculator.set_slot(4)
+    expect(calculator.multiply("SLOT_4",16)).toBe(8000);
   });
+  
 });

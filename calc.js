@@ -1,8 +1,8 @@
-module.exports =
+ module.exports =
 class Calculator {
   constructor() {
     this.memory = [];
-    this.regex = /\d{1,5}/gm;
+    this.regex = /\d+/g;
     
     this.total=0;
     // this.slot = "SlOT_1";
@@ -20,29 +20,23 @@ class Calculator {
         
      result += parseInt(this.last());
      
-      
       }else 
-      if(arguments[i]!=="LAST" && arguments[i]==typeof('string')){
-       if(arguments[i].match(this.regex)) {
-        digit = this.arguments[i].match(regex)
-        result += this.memory[arguments[digit[i]-1]]
-
-       }
-      }else{
+      if(arguments[i]!=="LAST" && typeof(arguments[i])=='string'){
+        digit = arguments[i].match(this.regex)
+        result += this.memory[parseInt(digit)-1]
+       }else{
         result += arguments[i];
       }
       this.total = result;
-
-    return this.total;
+      
+      return parseInt(this.total);
     }
-    
-    
-
-  //function that returns the sum of multiples
+   
+//function that returns the sum of multiples
   multiply() {
 
     let result=1;
-  
+    let digit;
    
     for (let i = 0; i < arguments.length; i++) 
     
@@ -50,27 +44,24 @@ class Calculator {
           result *= parseInt(this.last());
       }
       else 
-       if(arguments[i]!=="LAST"&&arguments[i]==typeof('string')){
+       if(arguments[i]!=="LAST"&&typeof(arguments[i])=='string'){
          
-           let digit = this.regex.test(arguments[i])
-          result *= parseInt(this.memory[parseInt(digit) - 1])
-          console.log(result);
+          digit = arguments[i].match(this.regex)
+          result *= this.memory[parseInt(digit) - 1]
         
         
       }else{
         result *= arguments[i];
         
       }
-    this.total = result;
-    return this.total;
-    
-
-  }
-  last() {
+     this.total = result;
     return parseInt(this.total);
   }
   
   //returns the last result
+  last() {
+    return parseInt(this.total);
+  }
   
   //sets a slot number
   set_slot(slotNumber) {
@@ -83,5 +74,5 @@ class Calculator {
     return parseInt(this.memory[slotNumber - 1]);
   }
 
-  
-}
+};
+
